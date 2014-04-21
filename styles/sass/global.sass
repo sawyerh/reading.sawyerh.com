@@ -1,4 +1,87 @@
 @import 'toolbox'
 
+body
+  font-family: "source-code-pro", Monaco, "Courier New", Courier, monospace
+  margin: 0
+  padding: 0
+  line-height: 1.5
+  font-size: 14px
+  text-align: center
+  color: #151515
+
 *
   +box-sizing(border-box)
+
+a
+  color: #151515
+
+  &:hover
+    color: blue
+
+img
+  max-width: 100%
+
+h1, h2, h3, h4
+  font-weight: normal
+  font-size: 14px
+  margin: 0
+
+.wrap
+  overflow: hidden
+  max-width: $w_base
+  width: 90%
+  margin: $gutter auto ($gutter * 2)
+
+.site-title
+  text-transform: uppercase
+
+.primary-header
+  margin: ($gutter * 2) 0
+  line-height: 2
+
+.primary-nav a
+  display: inline-block
+  padding-right: 10px
+
+.pocket-nope
+  text-decoration: line-through
+
+.item
+  padding: 0 ($gutter / 2) $gutter
+  display: block
+  float: left
+  text-decoration: none
+
+.places-grid-sizer, .item
+  width: 50%
+
+  +max-width(600px)
+    width: 100%
+    padding: 0 0 $gutter
+
+.item-title
+  max-width: 290px
+  margin: auto
+  text-transform: uppercase
+  line-height: 1.3
+
+.item-site
+  text-decoration: underline
+
+.feat-image
+  margin-bottom: 15px
+
+.primary-footer
+  border-top: 1px dashed #222
+  padding-top: $gutter
+  margin: 0 0 $gutter
+
+.footer-block
+  display: block
+  width: 33%
+  float: left
+
+  +max-width(530px)
+    width: 100%
+    float: none
+    margin-bottom: 10px

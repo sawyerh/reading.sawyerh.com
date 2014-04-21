@@ -8,8 +8,45 @@
   <link rel="canonical" href="{{permalink}}" />
   <link rel="alternate" type="application/rss+xml" href="{{site.feed_url}}" />
   <link rel="stylesheet" type="text/css" href="/styles/css/global.css" />
+
+  <script type="text/javascript" src="//use.typekit.net/pqj3jpv.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
+
+  <div class="wrap">
+    <header class="primary-header">
+      <h1 class="site-title">Sawyer is reading&hellip;</h1>
+      <nav class="primary-nav">
+        <a href="http://sawyerhollenshead.com/downloads/pocket">Pocket I</a>
+        <a href="http://sawyerhollenshead.com/downloads/pocket-ii">Pocket II</a>
+        <a href="{{site.feed_url}}">RSS</a>
+        <span class="pocket-nope">Pocket III</span>
+      </nav>
+    </header>
+
+    <section class="listing">
+      <div class="places-grid-sizer"></div>
+      {% for post in posts limit: 50 %}
+        <a href="{{ post.meta.link }}" target="_blank" class="item">
+          {% if post.meta.image and post.meta.image != '' %}
+            <img src="{{ post.meta.image}}" class="feat-image" />
+          {% endif %}
+          <h2 class="item-title">{{ post.title }}</h2>
+          <span class="item-site">
+            {% assign website = post.meta.link | replace: 'http://', '' | replace: 'https://', '' | replace: 'www.', '' | split: '/' %}
+            {{ website[0] }}
+          </span>
+        </a>
+      {% endfor %}
+    </section>
+
+    <footer class="primary-footer">
+      <span class="footer-block">Site powered by <a href="http://siteleaf.com" target="_blank">Siteleaf</a>.</span>
+      <span class="footer-block">Articles read in <a href="http://gazette.io/" target="_blank">Gazette</a>.</span>
+      <span class="footer-block">Type served by <a href="https://typekit.com/fonts/source-code-pro" target="_blank">Typekit</a>.</span>
+    </footer>
+  </div>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script src="/scripts/js/min/application.js"></script>
