@@ -31,6 +31,8 @@
         <a href="{{ post.meta.link }}" target="_blank" class="item">
           {% if post.meta.image and post.meta.image != '' %}
             <img src="{{ post.meta.image}}" class="feat-image" />
+          {% elsif post.assets %}
+            <img src="{{ post.assets.first.url }}" class="feat-image" />
           {% endif %}
           <h2 class="item-title">{{ post.title }}</h2>
           <span class="item-site">
