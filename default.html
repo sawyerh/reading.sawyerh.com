@@ -27,7 +27,7 @@
 
     <section class="listing">
       <div class="places-grid-sizer"></div>
-      {% for post in posts limit: 50 %}
+      {% for post in posts limit: 25 %}
         <a href="{{ post.meta.link }}" target="_blank" class="item">
           {% if post.meta.image and post.meta.image != '' %}
             <img src="{{ post.meta.image}}" class="feat-image" />
@@ -43,9 +43,21 @@
       {% endfor %}
     </section>
 
+    <section class="small-listing">
+      {% for post in posts limit: 1000 offset: 25 %}
+        <a href="{{ post.meta.link }}" target="_blank" class="small-item">
+          <h2 class="item-title">{{ post.title }}</h2>
+          <span class="item-site">
+            {% assign website = post.meta.link | replace: 'http://', '' | replace: 'https://', '' | replace: 'www.', '' | split: '/' %}
+            {{ website[0] }}
+          </span>
+        </a>
+      {% endfor %}
+    </section>
+
     <footer class="primary-footer">
       <span class="footer-block">Site powered by <a href="http://siteleaf.com" target="_blank">Siteleaf</a>.</span>
-      <span class="footer-block">Articles read in <a href="http://gazette.io/" target="_blank">Gazette</a>.</span>
+      <span class="footer-block">&nbsp;</span>
       <span class="footer-block">Type served by <a href="https://typekit.com/fonts/source-code-pro" target="_blank">Typekit</a>.</span>
     </footer>
   </div>
